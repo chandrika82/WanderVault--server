@@ -19,9 +19,9 @@ app.use((req, res, next) => {
 
 // CORS config
 const allowedOrigins = [
-  'http://localhost:3000',
+  'http://localhost:3000', 
   'http://localhost:3000/auth',
-  'https://wander-vault-client-q3ld-d18xstvel-chandrika-s-projects.vercel.app'
+  'https://wander-vault-client-q3ld.vercel.app'  // Added your deployed frontend origin here
 ];
 
 app.use(cors({
