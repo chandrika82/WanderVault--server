@@ -18,7 +18,12 @@ app.use((req, res, next) => {
 });
 
 // CORS config
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3000/auth'];
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3000/auth',
+  'https://wander-vault-client-q3ld-d18xstvel-chandrika-s-projects.vercel.app'
+];
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -35,9 +40,10 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.get('/', (req, res) => {
   res.send('APP IS RUNNING'); 
 }); 
+
 // Routes
 app.use('/posts', postRoutes);
-app.use('/user' , userRoutes);
+app.use('/user', userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
@@ -56,9 +62,3 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // Optional: silence deprecated useFindAndModify warning
 mongoose.set('strictQuery', true);
-
-
-
-
-
-
